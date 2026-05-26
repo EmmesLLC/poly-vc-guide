@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poly VC Room Setup — Quick Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a2540;
+    --brand:#1a9fdb;
+    --brand-dark:#0c6da3;
+    --paper:#f4f7fa;
+    --card:#ffffff;
+    --muted:#5b6b7d;
+    --line:#e2e9f0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Inter',-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:48px;
+  }
+  header{
+    background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dark) 100%);
+    color:#fff;
+    padding:36px 22px 30px;
+  }
+  .wrap{max-width:680px;margin:0 auto;}
+  .kicker{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    font-weight:600;opacity:.85;margin-bottom:8px;
+  }
+  header h1{
+    font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:27px;line-height:1.2;letter-spacing:-.01em;
+  }
+  header p{font-size:14px;opacity:.9;margin-top:8px;}
+  main{padding:24px 22px 0;}
+  .step{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 20px 18px;
+    margin-bottom:16px;
+    box-shadow:0 1px 3px rgba(10,37,64,.05);
+  }
+  .step-head{display:flex;align-items:center;gap:13px;margin-bottom:12px;}
+  .num{
+    flex:none;width:34px;height:34px;border-radius:50%;
+    background:var(--brand);color:#fff;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step-head h2{
+    font-family:'Archivo',sans-serif;font-weight:700;
+    font-size:18px;letter-spacing:-.01em;
+  }
+  ol.sub,ul.sub{margin:4px 0 0 0;padding-left:20px;}
+  ol.sub li,ul.sub li{margin:7px 0;font-size:15px;}
+  .sub li b{color:var(--brand-dark);font-weight:600;}
+  .platform{
+    margin-top:14px;border-left:3px solid var(--brand);
+    background:var(--paper);border-radius:0 8px 8px 0;
+    padding:12px 14px;
+  }
+  .platform h3{
+    font-size:13px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.05em;color:var(--brand-dark);margin-bottom:6px;
+  }
+  .platform ol{padding-left:18px;}
+  .platform ol li{font-size:14px;margin:5px 0;}
+  .tip{
+    background:#fff7e6;border:1px solid #f5d98a;
+    border-radius:10px;padding:13px 15px;margin-top:10px;
+    font-size:14px;
+  }
+  .tip b{color:#9a6b00;}
+  .opt-tag{
+    display:inline-block;background:#e8f6fd;color:var(--brand-dark);
+    font-size:11px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.05em;padding:3px 9px;border-radius:20px;
+    margin-left:8px;vertical-align:middle;
+  }
+  footer{
+    text-align:center;margin-top:26px;padding:0 22px;
+    font-size:12.5px;color:var(--muted);
+  }
+  footer .line{height:1px;background:var(--line);margin:0 auto 16px;max-width:120px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Meeting Room Guide</div>
+    <h1>Poly / Polycom Video Conferencing Setup</h1>
+    <p>Connect your laptop, set your devices, and share your screen — in 6 simple steps.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="step">
+    <div class="step-head"><div class="num">1</div><h2>Connect the VC Device</h2></div>
+    <ol class="sub">
+      <li>Plug the <b>USB cable</b> from the Poly/Polycom VC device into your laptop.</li>
+      <li>Ensure the device is <b>powered ON</b>.</li>
+      <li>Connect the room display (TV/monitor) to the VC unit — usually <b>HDMI</b>, already set in meeting rooms.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><div class="num">2</div><h2>Set the Device on Your Laptop</h2></div>
+    <ol class="sub">
+      <li>Open your meeting app (<b>Teams / Zoom / WebEx</b>).</li>
+      <li>Go to <b>Settings → Devices</b>.</li>
+      <li>Select:
+        <ul class="sub">
+          <li>Camera: <b>Poly Studio / Poly Camera</b></li>
+          <li>Microphone: <b>Poly Studio / Poly Audio</b></li>
+          <li>Speaker: <b>Poly Studio</b></li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><div class="num">3</div><h2>Start or Join a Meeting</h2></div>
+    <ol class="sub">
+      <li>Open <b>Teams / Zoom / Webex</b>.</li>
+      <li>Join your meeting normally.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><div class="num">4</div><h2>Share Your Screen</h2></div>
+    <div class="platform">
+      <h3>In Microsoft Teams</h3>
+      <ol>
+        <li>Click <b>Share</b>.</li>
+        <li>Choose <b>Entire screen</b> (recommended), or Window / PowerPoint.</li>
+        <li>Click <b>Share</b>.</li>
+      </ol>
+    </div>
+    <div class="platform">
+      <h3>In Zoom</h3>
+      <ol>
+        <li>Click <b>Share Screen</b>.</li>
+        <li>Select your screen / window.</li>
+        <li>Click <b>Share</b>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head"><div class="num">5</div><h2>Display on Room Screen</h2></div>
+    <ol class="sub">
+      <li>The shared content should automatically appear on the TV connected to the Poly device.</li>
+    </ol>
+    <div class="tip">
+      <b>If it doesn't show:</b> Check the TV input (HDMI source), and make sure your laptop is not incorrectly in &ldquo;extend&rdquo; display mode.
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="num">6</div>
+      <h2>HDMI Content Share<span class="opt-tag">Optional</span></h2>
+    </div>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:8px;">Some rooms allow direct sharing without a meeting:</p>
+    <ol class="sub">
+      <li>Connect the <b>HDMI cable</b> from the table to your laptop.</li>
+      <li>Press the <b>Content / Share</b> button on the Poly remote (if available).</li>
+      <li>Your screen will display instantly.</li>
+    </ol>
+  </div>
+
+  <footer>
+    <div class="line"></div>
+    Poly / Polycom Video Conferencing — Quick Setup Guide<br>
+    Having trouble? Contact your IT Service Desk.
+  </footer>
+
+</main>
+
+</body>
+</html>
