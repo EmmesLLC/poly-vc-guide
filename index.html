@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poly VC Room Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a2540;--brand:#1a9fdb;--brand-dark:#0c6da3;
+    --paper:#eef3f7;--card:#fff;--muted:#5b6b7d;--line:#e2e9f0;
+    --green:#2f9e6b;--green-dark:#1f7a51;--green-bg:#e9f7f0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',-apple-system,sans-serif;background:var(--paper);
+    color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased;padding-bottom:54px;}
+  .wrap{max-width:680px;margin:0 auto;}
+  header{background:linear-gradient(135deg,var(--brand),var(--brand-dark));
+    color:#fff;padding:36px 22px 28px;}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    font-weight:600;opacity:.85;margin-bottom:9px;}
+  header h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:27px;
+    line-height:1.19;letter-spacing:-.01em;}
+  header p{font-size:14.5px;opacity:.92;margin-top:9px;}
+
+  .tabs{display:flex;gap:8px;padding:18px 22px 14px;position:sticky;top:0;
+    background:var(--paper);z-index:20;}
+  .tab{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:13px 10px;cursor:pointer;text-align:center;transition:all .15s ease;
+    font-family:'Inter',sans-serif;}
+  .tab .t-ic{font-size:21px;display:block;margin-bottom:3px;}
+  .tab .t-name{font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;
+    line-height:1.25;color:var(--ink);}
+  .tab .t-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+  .tab.active{border-color:var(--brand);background:#e8f6fd;}
+  .tab.active.local-tab{border-color:var(--green);background:var(--green-bg);}
+  .tab.active .t-name{color:var(--brand-dark);}
+  .tab.active.local-tab .t-name{color:var(--green-dark);}
+
+  .panel{display:none;padding:4px 22px 0;}
+  .panel.active{display:block;}
+  .sec-sub{font-size:13.5px;color:var(--muted);margin:8px 0 4px;}
+
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 18px 16px;margin-top:14px;box-shadow:0 1px 3px rgba(10,37,64,.05);}
+  .step-head{display:flex;align-items:center;gap:12px;margin-bottom:11px;}
+  .num{flex:none;width:32px;height:32px;border-radius:50%;color:#fff;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;
+    display:flex;align-items:center;justify-content:center;}
+  .num.b{background:var(--brand);}.num.g{background:var(--green);}
+  .step-head h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;
+    letter-spacing:-.01em;}
+
+  ol.sub,ul.sub{margin:2px 0 0 0;padding-left:20px;}
+  ol.sub li,ul.sub li{margin:7px 0;font-size:15px;}
+  .sub li b{color:var(--brand-dark);font-weight:600;}
+  .sub.g li b{color:var(--green-dark);}
+
+  .platform{margin-top:12px;border-left:3px solid var(--brand);background:var(--paper);
+    border-radius:0 8px 8px 0;padding:11px 14px;}
+  .platform h4{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    color:var(--brand-dark);margin-bottom:5px;}
+  .platform ol{padding-left:18px;}.platform ol li{font-size:14px;margin:5px 0;}
+
+  .method{margin-top:12px;background:var(--paper);border:1px solid var(--line);
+    border-radius:11px;padding:12px 14px;}
+  .method h4{font-family:'Archivo',sans-serif;font-weight:700;font-size:14.5px;margin-bottom:6px;}
+  .method ol,.method ul{padding-left:18px;}.method li{font-size:14px;margin:4px 0;}
+
+  .key{display:inline-block;background:#0a2540;color:#fff;font-size:12px;font-weight:600;
+    padding:2px 8px;border-radius:5px;margin:0 1px;box-shadow:0 1.5px 0 #00000040;
+    white-space:nowrap;}
+
+  .fix{background:#fdecef;border:1px solid #f3b9c4;border-radius:11px;
+    padding:13px 15px;margin-top:12px;font-size:14px;}
+  .fix .ftitle{display:block;font-weight:700;margin-bottom:5px;color:#b32a45;}
+  .fix ul{padding-left:18px;margin-top:4px;}
+  .fix ul li{margin:5px 0;}
+  .fix b{color:#b32a45;}
+
+  .opt-tag{display:inline-block;background:#e8f6fd;color:var(--brand-dark);
+    font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    padding:3px 9px;border-radius:20px;margin-left:8px;vertical-align:middle;}
+  .opt-tag.g{background:var(--green-bg);color:var(--green-dark);}
+
+  footer{text-align:center;margin-top:28px;padding:0 22px;font-size:12.5px;color:var(--muted);}
+  footer .fline{height:1px;background:var(--line);margin:0 auto 14px;max-width:120px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Meeting Room Guide</div>
+    <h1>Poly / Polycom Video Conferencing</h1>
+    <p>Pick what you need to do using the two tabs below.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="tabs">
+    <div class="tab meet-tab active" data-tab="meeting" onclick="switchTab('meeting')">
+      <span class="t-ic">📹</span>
+      <span class="t-name">Run a meeting</span>
+      <span class="t-sub">Teams / Zoom / Webex</span>
+    </div>
+    <div class="tab local-tab" data-tab="local" onclick="switchTab('local')">
+      <span class="t-ic">🖥️</span>
+      <span class="t-name">Screen on TV</span>
+      <span class="t-sub">No call needed</span>
+    </div>
+  </div>
+
+  <div class="panel active" id="panel-meeting">
+    <p class="sec-sub">Use the room's Poly camera, microphone and speaker for a Teams / Zoom / Webex call.</p>
+
+    <div class="step">
+      <div class="step-head"><div class="num b">1</div><h3>Connect the VC device</h3></div>
+      <ol class="sub">
+        <li>Plug the <b>USB cable</b> from the Poly/Polycom VC device into your laptop.</li>
+        <li>Ensure the device is <b>powered ON</b>.</li>
+        <li>Connect the room display (TV/monitor) to the VC unit — usually <b>HDMI</b>, already set up in meeting rooms.</li>
+      </ol>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="num b">2</div><h3>Join your meeting</h3></div>
+      <ol class="sub">
+        <li>Open <b>Teams / Zoom / Webex</b>.</li>
+        <li>Join the meeting normally.</li>
+      </ol>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="num b">3</div><h3>Select the Poly devices in the call</h3></div>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:8px;">No need to change settings beforehand — switch devices directly inside the meeting:</p>
+      <ol class="sub">
+        <li>In the call, click the small <b>arrow (˅)</b> next to the <b>Mic</b>, <b>Camera</b>, and <b>Share / Screen-share</b> buttons.</li>
+        <li>From each dropdown, select the Poly device:
+          <ul class="sub">
+            <li>Camera: <b>Poly Studio / Poly Camera</b></li>
+            <li>Microphone: <b>Poly Studio / Poly Audio</b></li>
+            <li>Speaker: <b>Poly Studio</b></li>
+          </ul>
+        </li>
+      </ol>
+      <div class="platform" style="margin-top:12px;">
+        <h4>Prefer to set it up before joining?</h4>
+        <ol>
+          <li>In your meeting app, go to <b>Settings → Devices</b>.</li>
+          <li>Set Camera, Microphone, and Speaker to <b>Poly Studio</b>.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="num b">4</div><h3>Share your screen</h3></div>
+      <div class="platform">
+        <h4>In Microsoft Teams</h4>
+        <ol>
+          <li>Click <b>Share</b>.</li>
+          <li>Choose <b>Entire screen</b> (recommended), or Window / PowerPoint.</li>
+          <li>Click <b>Share</b>.</li>
+        </ol>
+      </div>
+      <div class="platform">
+        <h4>In Zoom</h4>
+        <ol>
+          <li>Click <b>Share Screen</b>.</li>
+          <li>Select your screen / window.</li>
+          <li>Click <b>Share</b>.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="num b">5</div><h3>Display on the room screen</h3></div>
+      <ol class="sub">
+        <li>The shared content should automatically appear on the TV connected to the Poly device.</li>
+      </ol>
+      <div class="fix">
+        <span class="ftitle">If the content doesn't appear:</span>
+        <ul>
+          <li>Check the <b>TV input</b> is set to the correct HDMI source.</li>
+          <li>Make sure your laptop is not incorrectly in <b>&ldquo;extend&rdquo;</b> display mode. If it is, either share the <b>correct display</b> inside the meeting app, or press <span class="key">⊞ Win</span> + <span class="key">P</span> and choose <b>Duplicate</b>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="num b">6</div><h3>HDMI content share<span class="opt-tag">Optional</span></h3></div>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:7px;">Some rooms allow direct sharing without a meeting:</p>
+      <ol class="sub">
+        <li>Connect the <b>HDMI cable</b> from the table to your laptop.</li>
+        <li>Press the <b>Content / Share</b> button on the Poly remote (if available).</li>
+        <li>Your screen will display instantly.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-local">
+    <p class="sec-sub">For a local presentation with no meeting or call. Try the options in order — Option 1 works in most rooms.</p>
+
+    <div class="step">
+      <div class="step-head"><div class="num g">1</div><h3>HDMI direct sharing<span class="opt-tag g">Most common</span></h3></div>
+      <ol class="sub g">
+        <li>Locate the <b>HDMI cable</b> on the meeting table.</li>
+        <li>Connect the HDMI cable into your laptop.</li>
+        <li>Your screen will either <b>mirror automatically</b>, or appear after the TV input is selected.</li>
+      </ol>
+      <div class="fix">
+        <span class="ftitle">If the screen does NOT show:</span>
+        <ul>
+          <li><b>Windows:</b> press <span class="key">⊞ Win</span> + <span class="key">P</span>, then choose <b>Duplicate</b> (mirror) or <b>Extend</b>.</li>
+          <li><b>Mac:</b> go to <b>System Settings → Displays</b> and turn on <b>Mirror Display</b>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="num g">2</div><h3>USB &ldquo;Device Mode&rdquo; sharing</h3></div>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:8px;">Use this if no HDMI cable is available.</p>
+      <ol class="sub g">
+        <li>Connect the <b>USB cable</b> from the Poly device into your laptop.</li>
+        <li>Make sure the TV is showing the <b>Poly home screen</b>.</li>
+        <li>Then use one of the methods below.</li>
+      </ol>
+      <div class="method">
+        <h4>Method A — Device / Room Mode</h4>
+        <ul>
+          <li>Some Poly systems <b>auto-switch</b> when USB is connected.</li>
+          <li>Your laptop display will then control the room system.</li>
+        </ul>
+      </div>
+      <div class="method">
+        <h4>Method B — Built-in casting (if enabled)</h4>
+        <ol>
+          <li>Press <span class="key">⊞ Win</span> + <span class="key">K</span>.</li>
+          <li>Select the meeting room display from the list (only works if wireless casting is enabled in the room).</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head"><div class="num g">3</div><h3>Poly Content Share<span class="opt-tag g">If available</span></h3></div>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:8px;">Some rooms have a dedicated Poly Content Share device or button.</p>
+      <ol class="sub g">
+        <li>Connect via <b>HDMI or USB</b>.</li>
+        <li>Press the <b>Content Share</b> button.</li>
+        <li>Your screen appears on the TV.</li>
+      </ol>
+    </div>
+  </div>
+
+  <footer>
+    <div class="fline"></div>
+    Poly / Polycom Video Conferencing — Room Quick Guide<br>
+    Having trouble? Contact your IT Service Desk.
+  </footer>
+
+</div>
+
+<script>
+  function switchTab(name){
+    document.querySelectorAll('.tab').forEach(function(t){
+      t.classList.toggle('active', t.dataset.tab === name);
+    });
+    document.querySelectorAll('.panel').forEach(function(p){
+      p.classList.toggle('active', p.id === 'panel-' + name);
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+
+</body>
+</html>
